@@ -9,9 +9,9 @@ namespace MVC.PatternLesson.Controllers
 {
     public class HelloWorldController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return "Hello world!!!";
+            return View();
         }
 
         public string Welcome(string name, int ID = 1)
