@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using MVC.PatternLesson.Models;
 
 namespace MVC.PatternLesson
 {
@@ -33,6 +35,9 @@ namespace MVC.PatternLesson
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<MVCPatternLessonContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MVCPatternLessonContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
